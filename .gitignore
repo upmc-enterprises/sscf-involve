@@ -1,8 +1,0 @@
-# Server stuff
-
-server/node_modules
-
-# Client stuff
-
-client/bower_components
-client/node_modules
