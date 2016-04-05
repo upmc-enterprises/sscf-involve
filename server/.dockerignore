@@ -1,0 +1,6 @@
+.ebextensions/
+.elasticbeanstalk/
+node_modules/
+Dockerfile
+docker-compose.yml
+npm-debug.log
