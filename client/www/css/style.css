@@ -10,7 +10,7 @@
 
 .sscf-left-menu .item-content {
 	background-color: #404040;
-	color: #66cc00;
+	color: #66CC00;
 	font-weight: 900;
 	font-size: 1.2em;
 }
@@ -27,4 +27,28 @@
 
 .sscf-main-content .scroll-content{
 	background-color: #F2F2F2;
+}
+
+.sscf-login {
+	background-color: #F2F2F2;
+}
+
+.sscf-login input {
+	border: 2px solid black !important;
+	border-radius: 5px;
+	width: 100%;
+}
+
+.sscf-login .button {
+	color: white;
+	font-size: 1em;
+	font-weight: 600;
+}
+
+.sscf-login .submit {
+	background-color: #99CC00;
+}
+
+.sscf-login .facebook {
+	background-color: #3b5998;
 }

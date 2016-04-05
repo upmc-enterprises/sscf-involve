@@ -2,22 +2,35 @@
   <ion-header-bar>
     <h1 class="title">Login</h1>
     <div class="buttons">
-      <button class="button button-clear" ng-click="closeLogin()">Close</button>
+      <a class="button button-icon icon ion-close" ng-click="closeLogin()"></a>
     </div>
   </ion-header-bar>
-  <ion-content>
+  <ion-content class="sscf-login">
     <form ng-submit="doLogin()">
       <div class="list">
-        <label class="item item-input">
-          <span class="input-label">Username</span>
-          <input type="text" ng-model="loginData.username">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Password</span>
-          <input type="password" ng-model="loginData.password">
+        <label class="item">
+          <div class="row">
+            <span class="col col-80">Username</span>
+            <a class="col">Forgot?</a>
+          </div>
+          <div class="row">
+            <input type="text" ng-model="loginData.username">
+          </div>
         </label>
         <label class="item">
-          <button class="button button-block button-positive" type="submit">Log in</button>
+          <div class="row">
+            <span class="col col-80">Password</span>
+            <a class="col">Forgot?</a>
+          </div>
+          <div class="row">
+            <input class="col" type="password" ng-model="loginData.password">
+          </div>
+        </label>
+        <label class="item">
+          <button class="button button-block submit" type="submit">Log in</button>
+        </label>
+        <label class="item">
+          <button class="button button-block facebook" type="submit">Log in with Facebook</button>
         </label>
       </div>
     </form>
