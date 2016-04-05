@@ -1,0 +1,30 @@
+/* Empty. Add your own CSS if you like */
+
+.sscf-left-menu {
+	background-color: #404040;
+}
+
+.sscf-left-menu hr {
+	color: #404040;
+}
+
+.sscf-left-menu .item-content {
+	background-color: #404040;
+	color: #66cc00;
+	font-weight: 900;
+	font-size: 1.2em;
+}
+
+.sscf-navbar {
+	background-color: #404040;
+	color: #66cc00;
+}
+
+.sscf-navbar .button {
+	background-color: #404040;
+	color: #66cc00;
+}
+
+.sscf-main-content .scroll-content{
+	background-color: #F2F2F2;
+}
