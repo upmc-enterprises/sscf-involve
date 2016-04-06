@@ -75,6 +75,19 @@
               }
             }
         })
+        .state('app.opportunity', {
+            url: '/opportunity',
+            params: {
+              opportunity: null
+            },
+            views: {
+              'menuContent': {
+                controller: 'OpportunityCtrl',
+                controllerAs: 'OpportunityCtrl',
+                templateUrl: 'templates/opportunity.html'
+              }
+            }
+        })
         .state('app.wallet', {
           url: '/wallet',
           views: {

@@ -15,6 +15,6 @@
 
     vm.goToProject = function(project) {
     	$state.go('app.project', { project: project } )
-    }
+    };
   }
 })();
