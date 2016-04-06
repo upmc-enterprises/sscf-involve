@@ -6,6 +6,19 @@
 	text-align: center;
 }
 
+.subheader {
+	background-color: #B3D236;
+	font-size: 1.2em;
+	font-weight: 600;
+}
+
+.submit {
+	color: white;
+	font-size: 1em;
+	font-weight: 600;
+	background-color: #99CC00;
+}
+
 /* Left menu styles */
 
 .sscf-left-menu {
@@ -66,26 +79,9 @@
 	font-weight: 600;
 }
 
-.sscf-login .submit {
-	background-color: #99CC00;
-}
-
 .sscf-login .facebook {
 	background-color: #3b5998;
 }
 
 /* Merchants page styles */
 
-.sscf-merchants .list .item.center {
-	background-color: #B3D236;
-	font-size: 1.2em;
-	font-weight: 600;
-}
-
-/* Wallet Page styles */
-
-.sscf-wallet .list .item.center {
-	background-color: #B3D236;
-	font-size: 1.2em;
-	font-weight: 600;
-}
