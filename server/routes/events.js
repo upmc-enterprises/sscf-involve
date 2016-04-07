@@ -9,27 +9,16 @@ var connection = mysql.createConnection({
   port     : process.env.RDS_PORT
 });
 
-//Get all events
-router.get('/', function(req, res, next) {
-  
+//Get event by eventId
+router.get('/organization/:orgId', function(req, res, next) {
+  var organizationId = req.params.orgId;
+
   connection.query('USE sccf_involvemint');
-  connection.query('SELECT * FROM events', function(err, rows, fields) {
+  connection.query('SELECT * FROM events WHERE organizationId=' + mysql.escape(organizationId), function(err, rows, fields) {    
     if (err) res.json(err);
     else res.json(rows);
   });
 
-  // res.json([
-  // 	{
-  // 		id: '1',
-  // 		orgId: '1',
-  // 		name: 'event1'
-  // 	},
-  // 	{
-  // 		id: '2',
-  // 		orgId: '1',
-  // 		name: 'event2'
-  // 	}
-  // ]);
 });
 
 //Get event by eventId
@@ -42,21 +31,25 @@ router.get('/:eventId', function(req, res, next) {
     else res.json(rows);
   });
 
-  // res.json([
-  //  {
-  //    id: '1',
-  //    orgId: '1',
-  //    name: 'event1'
-  //  }
-  // ]);
+});
+
+//Get all events
+router.get('/', function(req, res, next) {
+  
+  connection.query('USE sccf_involvemint');
+  connection.query('SELECT * FROM events', function(err, rows, fields) {
+    if (err) res.json(err);
+    else res.json(rows);
+  });
+
 });
 
 //Create a new event
 router.post('/', function(req, res, next) {
 	var newEvent =  {
-		eventId: req.body.eventId,
+		//eventId: req.body.eventId,
 		name: req.body.name,
-		organization: req.body.organization,
+		organizationId: req.body.organizationId,
 	  starttime: req.body.startTime,
 	  endtime: req.body.endTime,
 	  location: req.body.location
@@ -69,7 +62,6 @@ router.post('/', function(req, res, next) {
 		}
 	);
 
- //  res.json(newEvent);
 });
 
 module.exports = router;

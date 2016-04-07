@@ -49,7 +49,7 @@ router.get('/:userId', function(req, res, next) {
     else res.json(rows);
   });
 
-  // res.send('respond with a user. userId: ' + userId);
+  // res.send('respond with a user. userId: ' + userId);  
   // res.json([
   //   {
   //     id: '1',
