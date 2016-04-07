@@ -1,7 +1,8 @@
 angular.module('app.controllers', [])
 
-    .controller('myEventsCtrl', function ($scope, EventsService) {
+    .controller('myEventsCtrl', function ($scope, EventsService, VolunteersService) {
         $scope.events = EventsService.events;
+        $scope.volunteers = VolunteersService.volunteers;
     })
 
     .controller('myVolunteersCtrl', function ($scope) {

@@ -8,6 +8,24 @@ angular.module('app.services', [])
 
     }])
 
+    .service('VolunteersService', function() {
+        var volunteers = [
+            {
+                name: "Steve Sloka"
+            },
+            {
+                name: "Some guy"
+            }
+        ];
+
+        return {
+            volunteers: volunteers,
+            getVolunteer: function (volunteerId) {
+                return events[volunteerId];
+            }
+        }
+    })
+
     .service('EventsService', function () {
         var events = [
             {
