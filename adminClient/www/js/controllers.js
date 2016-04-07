@@ -1,8 +1,13 @@
 angular.module('app.controllers', [])
 
     .controller('myEventsCtrl', function ($scope, EventsService, VolunteersService) {
-        $scope.events = EventsService.events;
+        EventsService.events().then(function (response) {
+            $scope.events = response.data;
+            console.log('events: ', $scope.events);
+        });
         $scope.volunteers = VolunteersService.volunteers;
+
+
     })
 
     .controller('myVolunteersCtrl', function ($scope) {
@@ -14,7 +19,17 @@ angular.module('app.controllers', [])
     })
 
     .controller('modifyEventCtrl', function ($scope, $stateParams, EventsService) {
-        $scope.event = EventsService.getEvent($stateParams.eventId);
+        EventsService.getEvent($stateParams.eventId).then(function (response) {
+            var event = response.data;
+
+            if (parseInt(event.isFamilyFriendly) === 1) {
+                event.isFamilyFriendly = true;
+            } else {
+                event.isFamilyFriendly = false;
+            }
+
+            $scope.event = event;
+        });
     })
 
     .controller('eventSignInCtrl', function ($scope) {

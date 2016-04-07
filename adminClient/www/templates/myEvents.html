@@ -14,7 +14,7 @@
         <div class="button-bar"></div>
         <ion-list>
             <ion-item class="item-divider">Events</ion-item>
-            <ion-item ui-sref="menu.modifyEvent({eventId: $index})" ng-repeat="event in events">{{event.eventName}}</ion-item>
+            <ion-item ui-sref="menu.modifyEvent({eventId: event.id})" ng-repeat="event in events">{{event.name}}</ion-item>
         </ion-list>
         <a ui-sref="menu.modifyEvent" id="myEvents-button7" class="button button-balanced  button-block">Add New Event</a>
     </ion-content>

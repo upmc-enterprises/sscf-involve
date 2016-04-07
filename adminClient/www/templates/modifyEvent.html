@@ -1,11 +1,11 @@
 <ion-view title="Modify Event" id="page7">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <h1 id="modifyEvent-heading1" style="color:#000000;">{{event.eventName}}</h1>
+        <h1 id="modifyEvent-heading1" style="color:#000000;">{{event.name}}</h1>
         <div class="list card">
             <div class="item item-divider">Overview</div>
             <div class="item item-body">
                 <div id="modifyEvent-markdown2" style="color:#000000;">
-                    <p>{{event.eventOverview}}</p>
+                    <p>{{event.description}}</p>
                 </div>
             </div>
         </div>
@@ -22,7 +22,7 @@
                         <span class="input-label">Duration (Hours)</span>
                         <input type="number" placeholder="" value="{{event.duration}}">
                     </label>
-                    <ion-checkbox ng-checked="{{event.isFamilyFriendly}}">Family Friendly</ion-checkbox>
+                    <ion-checkbox ng-model="event.isFamilyFriendly">Family Friendly</ion-checkbox>
                     <label class="item item-input">
                         <span class="input-label">Additional Notes</span>
                         <input type="text" placeholder="" value="{{event.notes}}">
