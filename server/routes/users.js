@@ -10,43 +10,37 @@ var connection = mysql.createConnection({
 });
 
 //Get a user
-router.get('/:userId', function(req, res, next) {
-  var userId = req.params.userId;
+router.get('/:username', function(req, res, next) {
+  var username = req.params.username;
 
-  // connection.connect();
-  // connection.query('SELECT * FROM Users WHERE username=' + userId, function(err, rows, fields) {
-  //   if (err) throw err;
-  //   res.json(rows);
-  // });
-  // connection.end();
-
-  res.json({
-  	userId: userId,
-  	type: 'volunteer'
+	connection.query('USE sccf_involvemint');
+  connection.query('SELECT * FROM users WHERE username=' + mysql.escape(username), function(err, rows, fields) {
+    if (err) res.json(err);
+    else res.json(rows);
   });
+
+  // res.json({
+  // 	username: username,
+  // 	type: 'volunteer'
+  // });
 });
 
 //Create a new user
 router.post('/', function(req, res, next) {
-  var userId = req.body.userId;
-  var password = req.body.password;
-  var type = req.body.type;
+  var user = {
+		username: req.body.username,
+		password: req.body.password,
+		type: req.body.type
+  };
 
-	// connection.connect();
-	// connection.query('INSERT INTO Users (id,password,type)
-	// 									VALUES (' + userId + ',' + password + ',' + type + ')', 
-	// 	function(err, rows, fields) {
-	//     if (err) throw err;
-	//     res.json(rows);
-	// 	}
-	// );
-	// connection.end();
+	connection.query('USE sccf_involvemint');
+	connection.query('INSERT INTO users SET ?', user, function(err, rows, fields) {
+	    if (err) res.json(err);
+	    else res.json(user);
+		}
+	);
 
-  res.json({
-  	message: 'respond with newly created user', 
-  	userId: userId,
-  	type: type		
-	});
+ //  res.json(user);
 });
 
 module.exports = router;

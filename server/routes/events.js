@@ -9,52 +9,67 @@ var connection = mysql.createConnection({
   port     : process.env.RDS_PORT
 });
 
-
+//Get all events
 router.get('/', function(req, res, next) {
-  res.json([
-  	{
-  		id: '1',
-  		orgId: '1',
-  		name: 'event1'
-  	},
-  	{
-  		id: '2',
-  		orgId: '1',
-  		name: 'event2'
-  	}
-  ]);
+  
+  connection.query('USE sccf_involvemint');
+  connection.query('SELECT * FROM events', function(err, rows, fields) {
+    if (err) res.json(err);
+    else res.json(rows);
+  });
+
+  // res.json([
+  // 	{
+  // 		id: '1',
+  // 		orgId: '1',
+  // 		name: 'event1'
+  // 	},
+  // 	{
+  // 		id: '2',
+  // 		orgId: '1',
+  // 		name: 'event2'
+  // 	}
+  // ]);
+});
+
+//Get event by eventId
+router.get('/:eventId', function(req, res, next) {
+  var eventId = req.params.eventId;
+
+  connection.query('USE sccf_involvemint');
+  connection.query('SELECT * FROM events WHERE eventId=' + mysql.escape(eventId), function(err, rows, fields) {    
+    if (err) res.json(err);
+    else res.json(rows);
+  });
+
+  // res.json([
+  //  {
+  //    id: '1',
+  //    orgId: '1',
+  //    name: 'event1'
+  //  }
+  // ]);
 });
 
 //Create a new event
 router.post('/', function(req, res, next) {
-	var eventId = req.body.eventId;
-  var organization = req.body.organization;
-  var startTime = req.body.startTime;
-  var endTime = req.body.endTime;
-  var location = req.body.location;
+	var newEvent =  {
+		eventId: req.body.eventId,
+		name: req.body.name,
+		organization: req.body.organization,
+	  starttime: req.body.startTime,
+	  endtime: req.body.endTime,
+	  location: req.body.location
+	};
 
-	// connection.connect();
-	// connection.query('INSERT INTO Events (eventId,organization,startTime,endTime,location)
-	// 									VALUES (' + eventId 
-	// 														+ ',' + organization 
-	// 														+ ',' + startTime 
-	// 														+ ',' + endTime 
-	// 														+ ',' + location')', 
-	// 	function(err, rows, fields) {
-	//     if (err) throw err;
-	//     res.json(rows);
-	// 	}
-	// );
-	// connection.end();
+	connection.query('USE sccf_involvemint');
+	connection.query('INSERT INTO events SET ?',	newEvent, function(err, rows, fields) {
+	    if (err) res.json(err);
+	    else res.json(newEvent);
+		}
+	);
 
-  res.json({
-  	message: 'respond with posted event', 
-  	eventId: eventId,
-  	organization: organization,
-  	startTime: startTime,
-  	endTime: endTime,
-  	location: location		
-	});
+ //  res.json(newEvent);
 });
 
 module.exports = router;
