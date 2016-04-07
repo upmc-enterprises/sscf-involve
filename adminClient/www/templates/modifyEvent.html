@@ -1,11 +1,11 @@
 <ion-view title="Modify Event" id="page7">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <h1 id="modifyEvent-heading1" style="color:#000000;">Event Name</h1>
+        <h1 id="modifyEvent-heading1" style="color:#000000;">{{event.eventName}}</h1>
         <div class="list card">
             <div class="item item-divider">Overview</div>
             <div class="item item-body">
                 <div id="modifyEvent-markdown2" style="color:#000000;">
-                    <p>{{eventOverview}}</p>
+                    <p>{{event.eventOverview}}</p>
                 </div>
             </div>
         </div>
@@ -14,23 +14,18 @@
             <div class="item item-divider">Details</div>
             <div class="item item-body">
                 <form class="list">
-                    <label class="item item-select">
-                        <span class="input-label">Minimum Age</span>
-                        <select>
-                            <option>12 years</option>
-                            <option>16 years</option>
-                            <option>18 years</option>
-                            <option>21 years</option>
-                        </select>
+                    <label class="item item-input">
+                        <span class="input-label">Minimum Age (Years)</span>
+                        <input type="number" placeholder="" value="{{event.minAge}}">
                     </label>
                     <label class="item item-input">
                         <span class="input-label">Duration (Hours)</span>
-                        <input type="number" placeholder="">
+                        <input type="number" placeholder="" value="{{event.duration}}">
                     </label>
-                    <ion-checkbox>Family Friendly</ion-checkbox>
+                    <ion-checkbox ng-checked="{{event.isFamilyFriendly}}">Family Friendly</ion-checkbox>
                     <label class="item item-input">
                         <span class="input-label">Additional Notes</span>
-                        <input type="text" placeholder="">
+                        <input type="text" placeholder="" value="{{event.notes}}">
                     </label>
                 </form>
             </div>
@@ -43,9 +38,7 @@
                     <a ui-sref="menu.eventsignup" id="modifyEvent-button13" style="color:#000000;" class="button button-light  button-block button-outline">New</a>
                 </div>
                 <ion-list>
-                    <ion-item>Steve Sloka</ion-item>
-                    <ion-item>Mike Levin</ion-item>
-                    <ion-item>Jim Halpert</ion-item>
+                    <ion-item ng-repeat="volunteer in event.volunteers">{{volunteer.name}}</ion-item>
                 </ion-list>
             </div>
         </div>

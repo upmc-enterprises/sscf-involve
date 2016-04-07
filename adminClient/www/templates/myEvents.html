@@ -13,9 +13,7 @@
         <div class="button-bar"></div>
         <ion-list>
             <ion-item class="item-divider">Events</ion-item>
-            <ion-item ui-sref="menu.modifyEvent({eventId: 1})">Clean Highland Park Playground</ion-item>
-            <ion-item ui-sref="menu.modifyEvent({eventId: 2})">Paint Kid's Room at St. Mary's Church</ion-item>
-            <ion-item ui-sref="menu.modifyEvent({eventId: 3})">Make cards for Vets</ion-item>
+            <ion-item ui-sref="menu.modifyEvent({eventId: $index})" ng-repeat="event in events">{{event.eventName}}</ion-item>
         </ion-list>
         <a ui-sref="menu.modifyEvent" id="myEvents-button7" class="button button-balanced  button-block">Add New Event</a>
     </ion-content>
