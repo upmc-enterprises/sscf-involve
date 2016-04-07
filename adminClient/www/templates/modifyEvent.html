@@ -1,0 +1,58 @@
+<ion-view title="Modify Event" id="page7">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <h1 id="modifyEvent-heading1" style="color:#000000;">Event Name</h1>
+        <div class="list card">
+            <div class="item item-divider">Overview</div>
+            <div class="item item-body">
+                <div id="modifyEvent-markdown2" style="color:#000000;">
+                    <p>{{eventOverview}}</p>
+                </div>
+            </div>
+        </div>
+        <form class="list"></form>
+        <div class="list card">
+            <div class="item item-divider">Details</div>
+            <div class="item item-body">
+                <form class="list">
+                    <label class="item item-select">
+                        <span class="input-label">Minimum Age</span>
+                        <select>
+                            <option>12 years</option>
+                            <option>16 years</option>
+                            <option>18 years</option>
+                            <option>21 years</option>
+                        </select>
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Duration (Hours)</span>
+                        <input type="number" placeholder="">
+                    </label>
+                    <ion-checkbox>Family Friendly</ion-checkbox>
+                    <label class="item item-input">
+                        <span class="input-label">Additional Notes</span>
+                        <input type="text" placeholder="">
+                    </label>
+                </form>
+            </div>
+        </div>
+        <div class="list card">
+            <div class="item item-divider">Volunteers</div>
+            <div class="item item-body">
+                <div class="button-bar">
+                    <a ui-sref="menu.eventSignIn" id="modifyEvent-button11" style="color:#000000;" class="button button-light  button-block button-outline">Signin</a>
+                    <a ui-sref="menu.eventsignup" id="modifyEvent-button13" style="color:#000000;" class="button button-light  button-block button-outline">New</a>
+                </div>
+                <ion-list>
+                    <ion-item>Steve Sloka</ion-item>
+                    <ion-item>Mike Levin</ion-item>
+                    <ion-item>Jim Halpert</ion-item>
+                </ion-list>
+            </div>
+        </div>
+        <div class="button-bar">
+            <a href="mailto:" id="modifyEvent-button8" class="button button-dark  button-block">Email</a>
+            <a href="tel:" id="modifyEvent-button9" class="button button-positive  button-block">SMS</a>
+            <button id="modifyEvent-button10" class="button button-calm  button-block">Push Notification</button>
+        </div>
+    </ion-content>
+</ion-view>
