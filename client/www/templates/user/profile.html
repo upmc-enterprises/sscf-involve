@@ -1,0 +1,21 @@
+<ion-view view-title="{{ProfileCtrl.user.name}}" class="sscf-user">
+  <ion-content>
+    <div class="card">
+      <label class="item item-text-wrap center">
+        [Picture Goes Here]
+      </label>
+      <label class="item item-text-wrap center">
+        {{ProfileCtrl.user.name}}
+      </label>
+    </div>
+    <label class="item item-borderless center subheader"><b>Contact Info</b></label>
+    <label class="item item-borderless center item-text-wrap">Email: {{ProfileCtrl.user.email}}</label>
+    <label class="item item-borderless center item-text-wrap">Phone: {{ProfileCtrl.user.phone}}</label>
+
+    <label class="item item-borderless center subheader"><b>My Volunteer Opportunities</b></label>
+    <div class="item item-borderless center item-text-wrap" ng-repeat="opportunity in ProfileCtrl.user.opportunities">
+      <a ng-click="ProfileCtrl.goToOpportunity(opportunity)">{{opportunity.name}}</a>
+    </div>
+  </ion-content>
+</ion-view>
+

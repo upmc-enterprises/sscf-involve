@@ -1,0 +1,87 @@
+/* Empty. Add your own CSS if you like */
+
+/* Helper classes */
+
+.center {
+	text-align: center;
+}
+
+.subheader {
+	background-color: #B3D236;
+	font-size: 1.2em;
+	font-weight: 600;
+}
+
+.submit {
+	color: white;
+	font-size: 1em;
+	font-weight: 600;
+	background-color: #99CC00;
+}
+
+/* Left menu styles */
+
+.sscf-left-menu {
+	background-color: #404040;
+}
+
+.sscf-left-menu hr {
+	color: #404040;
+}
+
+.sscf-left-menu .item-content {
+	background-color: #404040;
+	color: #B3D236;
+	font-weight: 900;
+	font-size: 1.2em;
+}
+
+/* navbar styles */
+
+.sscf-navbar {
+	background-color: #404040;
+	color: #B3D236;
+}
+
+.sscf-navbar .button {
+	background-color: #404040;
+	color: #B3D236;
+}
+
+/* Main app content styles */
+
+.sscf-main-content .scroll-content{
+	background-color: #F2F2F2;
+}
+
+/* Home page styles */
+
+.sscf-home .ion-ios-search-strong {
+	font-size: 1.5em;
+	color: black;
+}
+
+/* Login page styles */
+
+.sscf-login {
+	background-color: #F2F2F2;
+}
+
+.sscf-login input {
+	border: 2px solid black !important;
+	border-radius: 5px;
+	width: 100%;
+}
+
+.sscf-login .button {
+	color: white;
+	font-size: 1em;
+	font-weight: 600;
+}
+
+.sscf-login .facebook {
+	background-color: #3b5998;
+}
+
+/* Merchants page styles */
+

@@ -1,0 +1,23 @@
+<ion-view view-title="{{OpportunityCtrl.opportunity.name}}" class="sscf-opportunity">
+  <ion-content>
+    <div class="card">
+      <label class="item item-text-wrap" ng-bind="OpportunityCtrl.opportunity.description">
+      </label>
+    </div>
+    <label class="item item-borderless center subheader"><b>When</b></label>
+    <label class="item item-borderless center item-text-wrap">{{OpportunityCtrl.opportunity.when}}</label>
+
+    <label class="item center subheader"><b>Where</b></label>
+    <label class="item item-borderless center item-text-wrap">{{OpportunityCtrl.opportunity.where}}</label>
+
+    <label class="item center subheader"><b>How Long</b></label>
+    <label class="item item-borderless center item-text-wrap">{{OpportunityCtrl.opportunity.howLong}}</label>
+
+    <label class="item center subheader"><b>Number Needed</b></label>
+    <label class="item item-borderless center item-text-wrap">{{OpportunityCtrl.opportunity.numberNeeded - OpportunityCtrl.opportunity.numberScheduled}}</label>
+
+    <label class="item">
+      <button class="button button-block button-positive" ng-click="OpportunityCtrl.signUpForOpportunity()">I want to help!</button>
+    </label>
+  </ion-content>
+</ion-view>

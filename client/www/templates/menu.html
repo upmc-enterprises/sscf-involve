@@ -1,0 +1,52 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="sscf-navbar">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+
+      <ion-nav-buttons side="right">
+        <button ng-if="currentUser === null" class="button" ng-click="login()">
+          SIGN IN
+        </button>
+        <button ng-if="currentUser !== null" class="button" ng-click="logout()">
+          SIGN OUT
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent" class="sscf-main-content"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left" class="sscf-left-menu">
+    <ion-header-bar class="sscf-navbar">
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <ion-item menu-close class="item-borderless item-icon-left" href="#/app/">
+          <i class="icon ion-android-home"></i>
+          HOME
+        </ion-item>
+        <ion-item menu-close class="item-borderless item-icon-left" href="#/app/projects">
+          PROJECT FEED
+        </ion-item>
+        <ion-item menu-close class="item-borderless item-icon-left" href="#/app/merchants">
+          MERCHANTS
+        </ion-item>
+        <ion-item ng-if="currentUser !== null" menu-close class="item-borderless item-icon-left" href="#/app/wallet">
+          WALLET
+        </ion-item>
+        <ion-item ng-if="currentUser !== null" menu-close class="item-borderless item-icon-left" href="#/app/profile">
+          PROFILE
+        </ion-item>
+        <ion-item menu-close class="item-borderless item-icon-left" href="#/app/settings">
+          <i class="icon ion-gear-a"></i>
+          SETTINGS
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

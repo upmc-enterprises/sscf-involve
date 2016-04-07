@@ -1,0 +1,17 @@
+<ion-view view-title="{{ProjectCtrl.project.name}}">
+  <ion-content>
+    <div class="card">
+      <label class="item item-text-wrap" ng-bind="ProjectCtrl.project.description">
+      </label>
+    </div>
+    <div class="list">
+      <label class="item item-borderless center subheader"><b>Contact Us:</b></label>
+      <label class="item item-borderless center item-text-wrap">{{ProjectCtrl.project.address}}</label>
+      <label class="item item-borderless center">{{ProjectCtrl.project.phone}}</label>
+    </div>
+    <label class="item center subheader"><b>Opportunities</b></label>
+    <div class="item item-text-wrap" ng-repeat="opportunity in ProjectCtrl.project.opportunities">
+    	<a ng-click="ProjectCtrl.goToOpportunity(opportunity)">{{opportunity.name}}</a>
+    </div>
+  </ion-content>
+</ion-view>
