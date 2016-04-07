@@ -6,8 +6,6 @@ angular.module('app.controllers', [])
             console.log('events: ', $scope.events);
         });
         $scope.volunteers = VolunteersService.volunteers;
-
-
     })
 
     .controller('myVolunteersCtrl', function ($scope) {
