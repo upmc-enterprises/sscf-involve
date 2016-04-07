@@ -12,6 +12,11 @@ CREATE TABLE `sccf_involvemint`.`events` (
   `starttime` DATETIME NULL,
   `endtime` DATETIME NULL,
   `location` VARCHAR(45) NULL,
+  `description` VARCHAR(500) NULL,
+  `notes` VARCHAR(500) NULL,
+  `isFamilyFriendly` BIT NULL,
+  `minAge` INT NULL,
+  `duration` INT NULL,
   PRIMARY KEY (`id`));
 
 CREATE TABLE `sccf_involvemint`.`credits` (
