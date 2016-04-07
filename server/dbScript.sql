@@ -17,6 +17,9 @@ CREATE TABLE `sccf_involvemint`.`events` (
   `isFamilyFriendly` TINYINT(1) NULL,
   `minAge` INT NULL,
   `duration` INT NULL,
+  `when` VARCHAR(500) NULL,
+  `where` VARCHAR(500) NULL,
+  `numberNeeded` INT NULL,
   PRIMARY KEY (`id`));
 
 CREATE TABLE `sccf_involvemint`.`credits` (
