@@ -36,3 +36,8 @@ CREATE TABLE `sccf_involvemint`.`event_log` (
   `checkin` DATETIME NULL,
   `checkout` DATETIME NULL,
   PRIMARY KEY (`id`));
+
+--Seed
+
+INSERT INTO sccf_involvemint.events VALUES
+('1', 'Test Event', '1234', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'BKSQ', 'some desc', 'my notes', '1', '18', '5', 'when data', 'where data', 10)
