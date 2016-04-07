@@ -14,7 +14,7 @@ CREATE TABLE `sccf_involvemint`.`events` (
   `location` VARCHAR(45) NULL,
   `description` VARCHAR(500) NULL,
   `notes` VARCHAR(500) NULL,
-  `isFamilyFriendly` BIT NULL,
+  `isFamilyFriendly` TINYINT(1) NULL,
   `minAge` INT NULL,
   `duration` INT NULL,
   PRIMARY KEY (`id`));
