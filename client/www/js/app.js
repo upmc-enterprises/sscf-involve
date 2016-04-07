@@ -106,8 +106,10 @@
         })
         .state('app.profile', {
           url: '/profile',
+          cache: false,
           views: {
             'menuContent': {
+              cache: false,
               controller: 'ProfileCtrl',
               controllerAs: 'ProfileCtrl',
               templateUrl: 'templates/user/profile.html'

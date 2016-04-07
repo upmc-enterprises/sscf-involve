@@ -42,15 +42,13 @@
     $scope.logout = function() {
       $scope.loginData = {};
       SessionService.currentUser = null;
-      $scope.currentUser = SessionService.currentUser;
-      $ionicHistory.clearCache();
+      $scope.currentUser = null;
       $ionicHistory.clearHistory();
       $ionicHistory.nextViewOptions({
         disableAnimate: true,
-        disableBack: true
+        disableBack: true,
       });
       $state.go('app.home');
-      console.log('clicked');
     };
 
     // Perform the login action when the user submits the login form
@@ -68,7 +66,7 @@
             disableAnimate: true,
             disableBack: true
           });
-          $state.go('app.profile');
+          $state.go('app.profile', null, {reload: true});
         }
       }, 500);
     };

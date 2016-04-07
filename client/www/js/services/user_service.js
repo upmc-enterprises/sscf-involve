@@ -76,6 +76,6 @@
       });
       // Assign user to SessionService.currentUser
       SessionService.currentUser = filtered_array[0];
-    }
+    };
   }
 })();
