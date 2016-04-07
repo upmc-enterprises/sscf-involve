@@ -3,15 +3,15 @@
 
   angular
     .module('starter.controllers')
-    .controller('ProjectCtrl', ProjectCtrl);
+    .controller('ProfileCtrl', ProfileCtrl);
 
-  ProjectCtrl.$inject = ['$state', '$stateParams'];
+  ProfileCtrl.$inject = ['$state', 'SessionService'];
 
-  function ProjectCtrl($state, $stateParams) {
+  function ProfileCtrl($state, SessionService) {
 
     var vm = this;
 
-    vm.project = $stateParams.project;
+    vm.user = SessionService.currentUser;
 
     vm.goToOpportunity = function(opportunity) {
       $state.go('app.opportunity', { opportunity: opportunity } );

@@ -5,9 +5,9 @@
     .module('starter.controllers')
     .controller('AppCtrl', AppCtrl);
 
-  AppCtrl.$inject = ['$scope', '$ionicModal', '$timeout'];
+  AppCtrl.$inject = ['$location', '$scope', '$ionicHistory', '$ionicModal', '$state', '$timeout', 'UserService', 'SessionService'];
 
-  function AppCtrl($scope, $ionicModal, $timeout) {
+  function AppCtrl($location, $scope, $ionicHistory, $ionicModal, $state, $timeout, UserService, SessionService) {
 
     // With the new view caching in Ionic, Controllers are only called
     // when they are recreated or on app start, instead of every page change.
@@ -18,6 +18,8 @@
 
     // Form data for the login modal
     $scope.loginData = {};
+
+    $scope.currentUser = SessionService.currentUser;
 
     // Create the login modal that we will use later
     $ionicModal.fromTemplateUrl('templates/login.html', {
@@ -36,15 +38,39 @@
       $scope.modal.show();
     };
 
+    // Set currentUser to null
+    $scope.logout = function() {
+      $scope.loginData = {};
+      SessionService.currentUser = null;
+      $scope.currentUser = SessionService.currentUser;
+      $ionicHistory.clearCache();
+      $ionicHistory.clearHistory();
+      $ionicHistory.nextViewOptions({
+        disableAnimate: true,
+        disableBack: true
+      });
+      $state.go('app.home');
+      console.log('clicked');
+    };
+
     // Perform the login action when the user submits the login form
     $scope.doLogin = function() {
-      console.log('Doing login', $scope.loginData);
+      UserService.signIn($scope.loginData);
 
       // Simulate a login delay. Remove this and replace with your login
       // code if using a login system
       $timeout(function() {
+        $scope.currentUser = SessionService.currentUser;
         $scope.closeLogin();
-      }, 1000);
+        if(SessionService.currentUser !== null) {
+          $ionicHistory.clearHistory();
+          $ionicHistory.nextViewOptions({
+            disableAnimate: true,
+            disableBack: true
+          });
+          $state.go('app.profile');
+        }
+      }, 500);
     };
 
     return {};

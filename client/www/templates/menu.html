@@ -10,8 +10,11 @@
       </ion-nav-buttons>
 
       <ion-nav-buttons side="right">
-        <button class="button" ng-click="login()">
+        <button ng-if="currentUser === null" class="button" ng-click="login()">
           SIGN IN
+        </button>
+        <button ng-if="currentUser !== null" class="button" ng-click="logout()">
+          SIGN OUT
         </button>
       </ion-nav-buttons>
     </ion-nav-bar>
@@ -33,10 +36,10 @@
         <ion-item menu-close class="item-borderless item-icon-left" href="#/app/merchants">
           MERCHANTS
         </ion-item>
-        <ion-item menu-close class="item-borderless item-icon-left" href="#/app/wallet">
+        <ion-item ng-if="currentUser !== null" menu-close class="item-borderless item-icon-left" href="#/app/wallet">
           WALLET
         </ion-item>
-        <ion-item menu-close class="item-borderless item-icon-left" href="#/app/profile">
+        <ion-item ng-if="currentUser !== null" menu-close class="item-borderless item-icon-left" href="#/app/profile">
           PROFILE
         </ion-item>
         <ion-item menu-close class="item-borderless item-icon-left" href="#/app/settings">

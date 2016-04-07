@@ -108,6 +108,8 @@
           url: '/profile',
           views: {
             'menuContent': {
+              controller: 'ProfileCtrl',
+              controllerAs: 'ProfileCtrl',
               templateUrl: 'templates/user/profile.html'
             }
           }
