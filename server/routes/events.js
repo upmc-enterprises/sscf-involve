@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
   port     : process.env.RDS_PORT
 });
 
-//Get event by eventId
+//Get events by eventId
 router.get('/organization/:orgId', function(req, res, next) {
   var organizationId = req.params.orgId;
 
@@ -21,14 +21,14 @@ router.get('/organization/:orgId', function(req, res, next) {
 
 });
 
-//Get event by eventId
+//Get event by id
 router.get('/:eventId', function(req, res, next) {
   var eventId = req.params.eventId;
 
   connection.query('USE sccf_involvemint');
-  connection.query('SELECT * FROM events WHERE eventId=' + mysql.escape(eventId), function(err, rows, fields) {    
+  connection.query('SELECT * FROM events WHERE id=' + mysql.escape(eventId), function(err, rows, fields) {
     if (err) res.json(err);
-    else res.json(rows);
+    else res.json(rows[0]);
   });
 
 });

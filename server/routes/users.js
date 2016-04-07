@@ -17,7 +17,7 @@ router.get('/id/:id', function(req, res, next) {
 	connection.query('USE sccf_involvemint');
   connection.query('SELECT * FROM users WHERE id=' + mysql.escape(id), function(err, rows, fields) {
     if (err) res.json(err);
-    else res.json(rows);
+    else res.json(rows[0]);
   });
 
 });
@@ -29,7 +29,7 @@ router.get('/:username', function(req, res, next) {
 	connection.query('USE sccf_involvemint');
   connection.query('SELECT * FROM users WHERE username=' + mysql.escape(username), function(err, rows, fields) {
     if (err) res.json(err);
-    else res.json(rows);
+    else res.json(rows[0]);
   });
 
 });
@@ -45,7 +45,7 @@ router.post('/', function(req, res, next) {
 	connection.query('USE sccf_involvemint');
 	connection.query('INSERT INTO users SET ?', user, function(err, rows, fields) {
 	    if (err) res.json(err);
-	    else res.json(user);
+	    else res.json(rows);
 		}
 	);
 
