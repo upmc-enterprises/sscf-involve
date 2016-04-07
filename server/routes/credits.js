@@ -9,6 +9,21 @@ var connection = mysql.createConnection({
   port     : process.env.RDS_PORT
 });
 
+//Update a credit's businessId 
+router.put('/:creditId/business/:businessId', function(req, res, next) {
+  var creditId = req.params.creditId;
+  var businessId = req.params.businessId;
+  
+  connection.query('USE sccf_involvemint');
+  connection.query('UPDATE credits SET businessId = ? WHERE id = ?', [businessId, creditId], function(err, rows, fields) {
+    if (err) res.json(err);
+    else {
+      res.json(rows);
+    }
+  });
+
+});
+
 //Update a credit's userId 
 router.put('/:creditId/user/:userId', function(req, res, next) {
   var creditId = req.params.creditId;
@@ -23,7 +38,6 @@ router.put('/:creditId/user/:userId', function(req, res, next) {
   });
 
 });
-
 
 //Get all of a user's credits
 router.get('/:userId', function(req, res, next) {
