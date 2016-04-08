@@ -28,6 +28,7 @@ CREATE TABLE `sccf_involvemint`.`credits` (
   `userId` INT NULL,
   `eventId` INT NOT NULL,
   `businessId` INT NULL,
+  `offerId` INT NULL,
   PRIMARY KEY (`id`));
 
 CREATE TABLE `sccf_involvemint`.`event_log` (

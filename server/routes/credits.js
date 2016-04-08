@@ -9,13 +9,14 @@ var connection = mysql.createConnection({
   port     : process.env.RDS_PORT
 });
 
-//Update a credit's businessId 
-router.put('/:creditId/business/:businessId', function(req, res, next) {
+//Update a credit's business/offer
+router.put('/:creditId/business/:businessId/offer/:offerId', function(req, res, next) {
   var creditId = req.params.creditId;
   var businessId = req.params.businessId;
+  var offerId = req.params.offerId;
   
   connection.query('USE sccf_involvemint');
-  connection.query('UPDATE credits SET businessId = ? WHERE id = ?', [businessId, creditId], function(err, rows, fields) {
+  connection.query('UPDATE credits SET businessId = ?, offerId = ? WHERE id = ?', [businessId, offerId, creditId], function(err, rows, fields) {
     if (err) res.json(err);
     else {
       res.json(rows);
@@ -44,26 +45,11 @@ router.get('/:userId', function(req, res, next) {
   var userId = req.params.userId;
 
   connection.query('USE sccf_involvemint');
-  connection.query('SELECT * FROM credits WHERE userId=' + mysql.escape(userId), function(err, rows, fields) {
+  connection.query('SELECT * FROM credits WHERE businessId is null and userId=' + mysql.escape(userId), function(err, rows, fields) {
     if (err) res.json(err);
     else res.json(rows);
   });
 
-  // res.send('respond with a user. userId: ' + userId);  
-  // res.json([
-  //   {
-  //     id: '1',
-  //     userId: userId,
-  //     eventId: '1',
-  //     businessId: '1'
-  //   },
-  //   {
-  //     id: '2',
-  //     userId: userId,
-  //     eventId: '1',
-  //     businessId: '1'
-  //   }
-  // ]);  
 });
 
 //Create a new credit
@@ -79,10 +65,6 @@ router.post('/', function(req, res, next) {
 		}
 	);
 
- //  res.json({
- //  	message: 'respond with newly created credit', 
- //  	eventId: eventId
-	// });
 });
 
 module.exports = router;
