@@ -16,7 +16,7 @@ router.put('/:creditId/business/:businessId/offer/:offerId', function(req, res, 
   var offerId = req.params.offerId;
   
   connection.query('USE sccf_involvemint');
-  connection.query('UPDATE credits SET businessId = ?, offerId = ? WHERE id = ?', [businessId, offerId, creditId], function(err, rows, fields) {
+  connection.query('UPDATE credits SET businessId = ?,   offerId = ? WHERE id = ?', [businessId, offerId, creditId], function(err, rows, fields) {
     if (err) res.json(err);
     else {
       res.json(rows);
@@ -36,6 +36,18 @@ router.put('/:creditId/user/:userId', function(req, res, next) {
     else {
       res.json(rows);
     }
+  });
+
+});
+
+//Get all of an event's unassigned credits
+router.get('/event/:eventId', function(req, res, next) {
+  var eventId = req.paramseventId;
+
+  connection.query('USE sccf_involvemint');
+  connection.query('SELECT * FROM credits WHERE businessId is null and userId is null and eventId' + mysql.escape(eventId), function(err, rows, fields) {
+    if (err) res.json(err);
+    else res.json(rows);
   });
 
 });
