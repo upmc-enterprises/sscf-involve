@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var events = require('./routes/events');
+var offers = require('./routes/offers');
 var credits = require('./routes/credits');
 var businesses = require('./routes/businesses');
 var organizations = require('./routes/organizations');
@@ -36,6 +37,7 @@ app.use(function(req, res, next) {
 app.use('/', routes);
 app.use('/users', users);
 app.use('/events', events);
+app.use('/offers', offers);
 app.use('/credits', credits);
 app.use('/businesses', businesses);
 app.use('/organizations', organizations);

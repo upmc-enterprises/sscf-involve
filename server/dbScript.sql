@@ -3,6 +3,7 @@ CREATE TABLE `sccf_involvemint`.`users` (
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   `type` VARCHAR(45) NOT NULL,
+  `description` VARCHAR(500) NULL,
   PRIMARY KEY (`id`));
 
 CREATE TABLE `sccf_involvemint`.`events` (
@@ -36,6 +37,14 @@ CREATE TABLE `sccf_involvemint`.`event_log` (
   `checkin` DATETIME NULL,
   `checkout` DATETIME NULL,
   PRIMARY KEY (`id`));
+
+CREATE TABLE `sccf_involvemint`.`offers` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `businessId` INT NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `description` VARCHAR(200) NOT NULL,
+  PRIMARY KEY (`id`));
+
 
 --Seed
 
