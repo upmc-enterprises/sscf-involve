@@ -10,6 +10,7 @@ var users = require('./routes/users');
 var events = require('./routes/events');
 var offers = require('./routes/offers');
 var credits = require('./routes/credits');
+var event_log = require('./routes/event_log');
 var businesses = require('./routes/businesses');
 var organizations = require('./routes/organizations');
 
@@ -39,6 +40,7 @@ app.use('/users', users);
 app.use('/events', events);
 app.use('/offers', offers);
 app.use('/credits', credits);
+app.use('/event_log', event_log);
 app.use('/businesses', businesses);
 app.use('/organizations', organizations);
 
