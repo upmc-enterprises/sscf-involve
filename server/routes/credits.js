@@ -42,10 +42,10 @@ router.put('/:creditId/user/:userId', function(req, res, next) {
 
 //Get all of an event's unassigned credits
 router.get('/event/:eventId', function(req, res, next) {
-  var eventId = req.paramseventId;
+  var eventId = req.params.eventId;
 
   connection.query('USE sccf_involvemint');
-  connection.query('SELECT * FROM credits WHERE businessId is null and userId is null and eventId' + mysql.escape(eventId), function(err, rows, fields) {
+  connection.query('SELECT * FROM credits WHERE businessId is null and userId is null and eventId=' + mysql.escape(eventId), function(err, rows, fields) {
     if (err) res.json(err);
     else res.json(rows);
   });
