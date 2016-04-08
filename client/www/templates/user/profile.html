@@ -8,9 +8,12 @@
         {{ProfileCtrl.user.description}}
       </label>
     </div>
-    <label class="item item-borderless center subheader"><b>My Events</b></label>
-    <div class="item item-borderless center item-text-wrap" ng-repeat="event in ProfileCtrl.user.events">
-      <a ng-click="ProfileCtrl.goToEvent(event)">{{event.name}}</a>
+
+    <label class="item item-borderless center"><b>My Credits: </b>{{ProfileCtrl.user.credits.length || 0}}  <img src="img/icons/timecredit-09.svg" style="height: 1.2em; width: 1.2em;"></label>
+
+    <label class="item item-borderless center"><b>My Events:</b></label>
+    <div class="item item-borderless center item-text-wrap" ng-repeat="eventLog in ProfileCtrl.user.eventLogs">
+      <a ng-click="ProfileCtrl.goToEvent(event)">{{eventLog.name}}</a>
     </div>
   </ion-content>
 </ion-view>

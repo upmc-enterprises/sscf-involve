@@ -5,9 +5,9 @@
     .module('starter.services')
     .factory('UserService', UserService);
 
-  UserService.$inject = ['$filter', '$http', 'SessionService'];
+  UserService.$inject = ['$filter', '$http', 'CreditService', 'SessionService'];
 
-  function UserService($filter, $http, SessionService) {
+  function UserService($filter, $http, CreditService, SessionService) {
 
     /*var _users = [
       {
@@ -86,6 +86,16 @@
           if(response.data) {
             // Assign user to SessionService.currentUser
             SessionService.currentUser = response.data;
+
+            // Get the user's credits
+            CreditService
+              .getCreditsForUser(SessionService.currentUser)
+              .then(function(creditResponse) {
+                if(response.data) {
+                  SessionService.currentUser.credits = creditResponse.data
+                }
+              });
+
           }
         });
     };
