@@ -1,12 +1,12 @@
-<ion-view view-title="Projects">
+<ion-view view-title="Events">
   <ion-content>
     <div class="list">
       <label class="item item-input">
         <i class="icon ion-ios-search-strong placeholder-icon"></i>
       	<input type="text" placeholder="search">
       </label>
-      <div ng-repeat="project in ProjectsCtrl.projects" class="item">
-        <a ng-click="ProjectsCtrl.goToProject(project)">{{project.name}}</a>
+      <div ng-repeat="event in EventsCtrl.events" class="item">
+        <a ng-click="EventsCtrl.goToEvent(event)">{{event.name}}</a>
       </div>
     </div>
   </ion-content>

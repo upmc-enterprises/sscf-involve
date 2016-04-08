@@ -1,20 +1,16 @@
-<ion-view view-title="{{ProfileCtrl.user.name}}" class="sscf-user">
+<ion-view view-title="{{ProfileCtrl.user.username}}" class="sscf-user">
   <ion-content>
     <div class="card">
       <label class="item item-text-wrap center">
         [Picture Goes Here]
       </label>
       <label class="item item-text-wrap center">
-        {{ProfileCtrl.user.name}}
+        {{ProfileCtrl.user.description}}
       </label>
     </div>
-    <label class="item item-borderless center subheader"><b>Contact Info</b></label>
-    <label class="item item-borderless center item-text-wrap">Email: {{ProfileCtrl.user.email}}</label>
-    <label class="item item-borderless center item-text-wrap">Phone: {{ProfileCtrl.user.phone}}</label>
-
-    <label class="item item-borderless center subheader"><b>My Volunteer Opportunities</b></label>
-    <div class="item item-borderless center item-text-wrap" ng-repeat="opportunity in ProfileCtrl.user.opportunities">
-      <a ng-click="ProfileCtrl.goToOpportunity(opportunity)">{{opportunity.name}}</a>
+    <label class="item item-borderless center subheader"><b>My Events</b></label>
+    <div class="item item-borderless center item-text-wrap" ng-repeat="event in ProfileCtrl.user.events">
+      <a ng-click="ProfileCtrl.goToEvent(event)">{{event.name}}</a>
     </div>
   </ion-content>
 </ion-view>

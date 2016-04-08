@@ -5,11 +5,11 @@
     .module('starter.services')
     .factory('BusinessService', BusinessService);
 
-  BusinessService.$inject = [];
+  BusinessService.$inject = ['$http'];
 
-  function BusinessService() {
+  function BusinessService($http) {
 
-    var _businesses = [
+    /* var _businesses = [
       {
         name: 'Manchester Craftsman\'s Guild',
         id: 1,
@@ -42,14 +42,17 @@
           }
         ]
       }
-    ];
+    ];*/
+
+    var _baseUrl = 'http://involvemint-server.us-east-1.elasticbeanstalk.com';
 
     return {
       getBusinesses: _getBusinesses
     };
 
     function _getBusinesses() {
-      return _businesses;
+      //return _businesses;
+      return $http.get(_baseUrl + '/businesses');
     };
   }
 })();

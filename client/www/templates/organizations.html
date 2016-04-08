@@ -1,0 +1,13 @@
+<ion-view view-title="Organizations">
+  <ion-content>
+    <div class="list">
+      <label class="item item-input">
+        <i class="icon ion-ios-search-strong placeholder-icon"></i>
+      	<input type="text" placeholder="search">
+      </label>
+      <div ng-repeat="organization in OrganizationsCtrl.organizations" class="item">
+        <a ng-click="OrganizationsCtrl.goToOrganization(organization)">{{organization.username}}</a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

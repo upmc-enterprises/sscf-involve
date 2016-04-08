@@ -8,6 +8,13 @@
         <i class="icon ion-ios-search-strong placeholder-icon"></i>
       	<input type="text" placeholder="search">
       </label>
+      <div class="list">
+        <div class="item" ng-repeat="business in BusinessesCtrl.businesses">
+          <a ng-click="BusinessesCtrl.goToBusiness(business)">
+            {{business.username}}
+          </a>
+        </div>
+      </div>
     </div>
   </ion-content>
 </ion-view>

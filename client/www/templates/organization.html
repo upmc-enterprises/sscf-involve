@@ -1,0 +1,13 @@
+<ion-view view-title="{{OrganizationCtrl.organization.name}}">
+  <ion-content>
+    <div class="card">
+      <label class="item item-text-wrap" ng-bind="OrganizationCtrl.organization.description">
+      </label>
+    </div>
+
+    <label class="item center subheader"><b>Events</b></label>
+    <div class="item item-text-wrap" ng-repeat="event in OrganizationCtrl.organization.events">
+    	<a ng-click="OrganizationCtrl.goToEvent(event)">{{event.name}}</a>
+    </div>
+  </ion-content>
+</ion-view>

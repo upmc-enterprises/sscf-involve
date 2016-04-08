@@ -38,68 +38,155 @@
         })
         .state('app.home', {
           url: '/home',
+          cache: false,
           views: {
             'menuContent': {
+              cache: false,
               templateUrl: 'templates/home.html'
             }
           }
         })
-        .state('app.merchants', {
-          url: '/merchants',
+        .state('app.businesses', {
+          url: '/businesses',
+          cache: false,
           views: {
             'menuContent': {
-              templateUrl: 'templates/merchants.html'
+              cache: false,
+              controller: 'BusinessesCtrl',
+              controllerAs: 'BusinessesCtrl',
+              templateUrl: 'templates/businesses.html'
             }
           }
         })
-        .state('app.projects', {
-            url: '/projects',
-            views: {
-              'menuContent': {
-                controller: 'ProjectsCtrl',
-                controllerAs: 'ProjectsCtrl',
-                templateUrl: 'templates/projects.html'
-              }
-            }
-        })
-        .state('app.project', {
-            url: '/project',
+        .state('app.business', {
+            url: '/business',
             params: {
-              project: null
+              business: null
             },
+            cache: false,
             views: {
               'menuContent': {
-                controller: 'ProjectCtrl',
-                controllerAs: 'ProjectCtrl',
-                templateUrl: 'templates/project.html'
+                cache: false,
+                controller: 'BusinessCtrl',
+                controllerAs: 'BusinessCtrl',
+                templateUrl: 'templates/business.html'
               }
             }
         })
-        .state('app.opportunity', {
-            url: '/opportunity',
+        .state('app.events', {
+            url: '/events',
+            cache: false,
+            views: {
+              'menuContent': {
+                cache: false,
+                controller: 'EventsCtrl',
+                controllerAs: 'EventsCtrl',
+                templateUrl: 'templates/events.html'
+              }
+            }
+        })
+        .state('app.event', {
+            url: '/event',
             params: {
-              opportunity: null
+              event: null
             },
+            cache: false,
             views: {
               'menuContent': {
-                controller: 'OpportunityCtrl',
-                controllerAs: 'OpportunityCtrl',
-                templateUrl: 'templates/opportunity.html'
+                cache: false,
+                controller: 'EventCtrl',
+                controllerAs: 'EventCtrl',
+                templateUrl: 'templates/event.html'
               }
             }
         })
-        .state('app.wallet', {
-          url: '/wallet',
+        .state('app.offers', {
+            url: '/offers',
+            cache: false,
+            views: {
+              'menuContent': {
+                cache: false,
+                controller: 'OffersCtrl',
+                controllerAs: 'OffersCtrl',
+                templateUrl: 'templates/offers.html'
+              }
+            }
+        })
+        .state('app.offer', {
+            url: '/offer',
+            params: {
+              offer: null
+            },
+            cache: false,
+            views: {
+              'menuContent': {
+                cache: false,
+                controller: 'OfferCtrl',
+                controllerAs: 'OfferCtrl',
+                templateUrl: 'templates/offer.html'
+              }
+            }
+        })
+        .state('app.organizations', {
+            url: '/organizations',
+            cache: false,
+            views: {
+              'menuContent': {
+                cache: false,
+                controller: 'OrganizationsCtrl',
+                controllerAs: 'OrganizationsCtrl',
+                templateUrl: 'templates/organizations.html'
+              }
+            }
+        })
+        .state('app.organization', {
+            url: '/organization',
+            params: {
+              organization: null
+            },
+            cache: false,
+            views: {
+              'menuContent': {
+                cache: false,
+                controller: 'OrganizationCtrl',
+                controllerAs: 'OrganizationCtrl',
+                templateUrl: 'templates/organization.html'
+              }
+            }
+        })
+        .state('app.vouchers', {
+          url: '/vouchers',
+          cache: false,
           views: {
             'menuContent': {
-              templateUrl: 'templates/user/wallet.html'
+              cache: false,
+              controller: 'VouchersCtrl',
+              controllerAs: 'VouchersCtrl',
+              templateUrl: 'templates/vouchers.html'
             }
           }
+        })
+        .state('app.voucher', {
+            url: '/voucher',
+            params: {
+              voucher: null
+            },
+            cache: false,
+            views: {
+              'menuContent': {
+                cache: false,
+                controller: 'VoucherCtrl',
+                controllerAs: 'VoucherCtrl',
+                templateUrl: 'templates/voucher.html'
+              }
+            }
         })
         .state('app.settings', {
           url: '/settings',
+          cache: false,
           views: {
             'menuContent': {
+              cache: false,
               templateUrl: 'templates/user/settings.html'
             }
           }
