@@ -53,6 +53,9 @@
 
     // Perform the login action when the user submits the login form
     $scope.doLogin = function() {
+      // Hack to use levinmr behind the scenes no matter what username you enter
+      $scope.loginData.username = 'levinmr';
+
       UserService.signIn($scope.loginData);
 
       // Simulate a login delay. Remove this and replace with your login

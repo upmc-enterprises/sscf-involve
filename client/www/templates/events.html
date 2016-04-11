@@ -1,0 +1,16 @@
+<ion-view>
+  <ion-nav-title>
+    <img src="img/icons/timecredit-09.svg" style="height: 1.2em; width: 1.2em;">
+    <span>involveMINT</span>
+  </ion-nav-title>
+  <ion-content>
+    <div class="list">
+      <label class="item center">
+        <b>Volunteer Opportunities</b>
+      </label>
+      <div ng-repeat="event in EventsCtrl.events" class="item">
+        <a ng-click="EventsCtrl.goToEvent(event)">{{event.name}}</a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

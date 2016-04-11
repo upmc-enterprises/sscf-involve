@@ -3,13 +3,13 @@
 
   angular
     .module('starter.services')
-    .factory('ProjectService', ProjectService);
+    .factory('OrganizationService', OrganizationService);
 
-  ProjectService.$inject = [];
+  OrganizationService.$inject = ['$http'];
 
-  function ProjectService() {
+  function OrganizationService($http) {
 
-    var _projects = [
+    /*var _organizations = [
       {
         name: 'YouthPlaces',
         id: 1,
@@ -18,8 +18,8 @@
         description: 'Making a difference in the lives of thousands of teens by promoting positive development and providing a safe place for youth to engage in a range of experiences.',
         opportunities: [
           {
-            name: 'Come help out a crew in the Summer Community Service Project',
-            description: 'Every summer we gather 500 young adults (male; ages 16-25) to participate in a 6-week long community service project within their neighborhood. We’d like to invite volunteers from throughout the northside to be a part of this impactful project and connect with your fellow community members! Projects range from painting murals to setting up a community garden.',
+            name: 'Come help out a crew in the Summer Community Service organization',
+            description: 'Every summer we gather 500 young adults (male; ages 16-25) to participate in a 6-week long community service organization within their neighborhood. We’d like to invite volunteers from throughout the northside to be a part of this impactful organization and connect with your fellow community members! organizations range from painting murals to setting up a community garden.',
             when: 'Every Saturday beginning at 10am',
             where: 'Meet at corner of West Ave and Manchester St.',
             howLong: '2-4 hours',
@@ -73,14 +73,17 @@
           }
         ]
       }
-    ];
+    ];*/
+
+    var _baseUrl = 'http://involvemint-server.us-east-1.elasticbeanstalk.com';
 
     return {
-      getProjects: _getProjects
+      getOrganizations: _getOrganizations
     };
 
-    function _getProjects() {
-      return _projects;
+    function _getOrganizations() {
+      //return _organizations;
+      return $http.get(_baseUrl + '/organizations');
     }
   }
 })();

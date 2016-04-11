@@ -30,21 +30,17 @@
           <i class="icon ion-android-home"></i>
           HOME
         </ion-item>
-        <ion-item menu-close class="item-borderless item-icon-left" href="#/app/projects">
-          PROJECT FEED
-        </ion-item>
-        <ion-item menu-close class="item-borderless item-icon-left" href="#/app/merchants">
-          MERCHANTS
-        </ion-item>
-        <ion-item ng-if="currentUser !== null" menu-close class="item-borderless item-icon-left" href="#/app/wallet">
-          WALLET
-        </ion-item>
         <ion-item ng-if="currentUser !== null" menu-close class="item-borderless item-icon-left" href="#/app/profile">
           PROFILE
         </ion-item>
-        <ion-item menu-close class="item-borderless item-icon-left" href="#/app/settings">
-          <i class="icon ion-gear-a"></i>
-          SETTINGS
+        <ion-item menu-close class="item-borderless item-icon-left" href="#/app/events">
+          EARN
+        </ion-item>
+        <ion-item menu-close class="item-borderless item-icon-left" href="#/app/offers">
+          SPEND
+        </ion-item>
+        <ion-item ng-if="currentUser !== null" menu-close class="item-borderless item-icon-left" href="#/app/vouchers">
+          VOUCHERS
         </ion-item>
       </ion-list>
     </ion-content>

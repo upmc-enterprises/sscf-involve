@@ -5,77 +5,104 @@
     .module('starter.services')
     .factory('UserService', UserService);
 
-  UserService.$inject = ['$filter', 'SessionService'];
+  UserService.$inject = ['$filter', '$http', 'CreditService', 'SessionService'];
 
-  function UserService($filter, SessionService) {
+  function UserService($filter, $http, CreditService, SessionService) {
 
-    var _users = [
+    /*var _users = [
       {
-        username: 'cassatm',
-        name: 'Mary Cassat',
+        username: 'cassattm',
+        name: 'Mary Cassatt',
         phone: '',
         email: '',
-        opportunities: [],
-        credits: []
+        events: [],
+        credits: [],
+        vouchers: []
       },
       {
         username: 'ferrisg',
         name: 'George Ferris',
         phone: '',
         email: '',
-        opportunities: [],
-        credits: []
+        events: [],
+        credits: [],
+        vouchers: []
       },
       {
         username: 'bowmand',
         name: 'Darnell Bowman',
         phone: '',
         email: '',
-        opportunities: [],
-        credits: []
+        events: [],
+        credits: [],
+        vouchers: []
       },
       {
         username: 'smithk',
         name: 'Kelley Smith',
         phone: '',
         email: '',
-        opportunities: [],
-        credits: []
+        events: [],
+        credits: [],
+        vouchers: []
       },
       {
         username: 'robinsonj',
         name: 'Julie Robinson',
         phone: '',
         email: '',
-        opportunities: [],
-        credits: []
+        events: [],
+        credits: [],
+        vouchers: []
       },
       {
         username: 'wilsonb',
         name: 'Ben Wilson',
         phone: '',
         email: '',
-        opportunities: [],
-        credits: []
+        events: [],
+        credits: [],
+        vouchers: []
       }
-    ];
+    ];*/
+
+    var _baseUrl = 'http://involvemint-server.us-east-1.elasticbeanstalk.com';
 
     return {
       getUsers: _getUsers,
-      signIn: _signIn
+      signIn: _signIn,
+      updateCurrentUsersCredits: _updateCurrentUsersCredits
     };
 
     function _getUsers() {
-      return _users;
+      //return _users;
+      return $http.get(_baseUrl + '/users');
     };
 
     function _signIn(credentials) {
       // Find user with credentials.username
-      var filtered_array = $filter('filter')(_users, function(u) {
-        return u.username === credentials.username;
-      });
-      // Assign user to SessionService.currentUser
-      SessionService.currentUser = filtered_array[0];
+      $http
+        .get(_baseUrl + '/users/' + credentials.username)
+        .then(function(response) {
+          if(response.data) {
+            // Assign user to SessionService.currentUser
+            SessionService.currentUser = response.data;
+            _updateCurrentUsersCredits();
+          }
+        });
     };
+
+    function _updateCurrentUsersCredits() {
+      if(SessionService.currentUser) {
+        // Get the user's credits
+        CreditService
+          .getCreditsForUser(SessionService.currentUser)
+          .then(function(response) {
+            if(response.data) {
+              SessionService.currentUser.credits = response.data
+            }
+          });
+      }
+    }
   }
 })();

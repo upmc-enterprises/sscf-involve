@@ -1,0 +1,17 @@
+<ion-view>
+  <ion-nav-title>
+    <img src="img/icons/timecredit-09.svg" style="height: 1.2em; width: 1.2em;">
+    <span>involveMINT</span>
+  </ion-nav-title>
+  <ion-content>
+    <div class="list">
+      <label class="item item-input">
+        <i class="icon ion-ios-search-strong placeholder-icon"></i>
+      	<input type="text" placeholder="search">
+      </label>
+      <div ng-repeat="organization in OrganizationsCtrl.organizations" class="item">
+        <a ng-click="OrganizationsCtrl.goToOrganization(organization)">{{organization.username}}</a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

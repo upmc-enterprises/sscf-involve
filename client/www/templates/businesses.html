@@ -1,0 +1,24 @@
+<ion-view class="sscf-merchants">
+  <ion-nav-title>
+    <img src="img/icons/timecredit-09.svg" style="height: 1.2em; width: 1.2em;">
+    <span>involveMINT</span>
+  </ion-nav-title>
+  <ion-content>
+    <div class="list">
+      <label class="item center subheader">
+        MINTY FRESH DEALS
+      </label>
+      <label class="item item-input">
+        <i class="icon ion-ios-search-strong placeholder-icon"></i>
+      	<input type="text" placeholder="search">
+      </label>
+      <div class="list">
+        <div class="item" ng-repeat="business in BusinessesCtrl.businesses">
+          <a ng-click="BusinessesCtrl.goToBusiness(business)">
+            {{business.username}}
+          </a>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

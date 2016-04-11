@@ -1,0 +1,12 @@
+<ion-view view-title="{{BusinessCtrl.business.name}}">
+  <ion-content>
+    <div class="card">
+      <label class="item item-text-wrap" ng-bind="BusinessCtrl.business.description">
+      </label>
+    </div>
+    <label class="item center subheader"><b>Offers</b></label>
+    <div class="item item-text-wrap" ng-repeat="offer in BusinessCtrl.business.offers">
+    	<a ng-click="BusinessCtrl.goToOffer(offer)">{{offer.name}}</a>
+    </div>
+  </ion-content>
+</ion-view>

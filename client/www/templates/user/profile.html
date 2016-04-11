@@ -1,20 +1,30 @@
-<ion-view view-title="{{ProfileCtrl.user.name}}" class="sscf-user">
+<ion-view view-title="Mary Cassett" class="sscf-user">
   <ion-content>
     <div class="card">
       <label class="item item-text-wrap center">
-        [Picture Goes Here]
+        <img src="img/images/mary_cassett.jpg" style="height: 8em; width: 8em; border-radius: 50%;">
       </label>
       <label class="item item-text-wrap center">
-        {{ProfileCtrl.user.name}}
+        Mary Cassett
       </label>
     </div>
-    <label class="item item-borderless center subheader"><b>Contact Info</b></label>
-    <label class="item item-borderless center item-text-wrap">Email: {{ProfileCtrl.user.email}}</label>
-    <label class="item item-borderless center item-text-wrap">Phone: {{ProfileCtrl.user.phone}}</label>
 
-    <label class="item item-borderless center subheader"><b>My Volunteer Opportunities</b></label>
-    <div class="item item-borderless center item-text-wrap" ng-repeat="opportunity in ProfileCtrl.user.opportunities">
-      <a ng-click="ProfileCtrl.goToOpportunity(opportunity)">{{opportunity.name}}</a>
+    <div class="card">
+      <label class="item item-borderless center"><b>My Credits: </b>{{ProfileCtrl.user.credits.length || 0}}  <img src="img/icons/timecredit-09.svg" style="height: 1.2em; width: 1.2em;"></label>
+    </div>
+
+    <div class="card">
+      <label class="item item-borderless center"><b>My Volunteer Events:</b></label>
+      <div class="item item-borderless center item-text-wrap" ng-repeat="eventLog in ProfileCtrl.user.eventLogs">
+        <a ng-click="ProfileCtrl.goToEventLog(eventLog)">{{eventLog.name}}</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <label class="item item-borderless center"><b>My Vouchers:</b></label>
+      <div class="item item-borderless center item-text-wrap" ng-repeat="voucher in ProfileCtrl.user.vouchers">
+        <a ng-click="ProfileCtrl.goToVoucher(voucher)">{{voucher.offer.name}}</a>
+      </div>
     </div>
   </ion-content>
 </ion-view>

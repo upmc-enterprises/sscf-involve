@@ -1,0 +1,12 @@
+<ion-view view-title="{{EventLogCtrl.eventLog.name}}" class="sscf-event">
+  <ion-content>
+    <div class="card">
+      <label class="item item-text-wrap" ng-bind="EventLogCtrl.eventLog.description">
+      </label>
+    </div>
+
+    <label class="item">
+      <button class="button button-block button-positive" ng-click="EventLogCtrl.checkIn()">Log 2 Hours!</button>
+    </label>
+  </ion-content>
+</ion-view>

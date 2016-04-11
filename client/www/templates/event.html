@@ -1,0 +1,18 @@
+<ion-view view-title="{{EventCtrl.event.name}}" class="sscf-event">
+  <ion-content>
+    <div class="card">
+      <label class="item item-text-wrap" ng-bind="EventCtrl.event.description">
+      </label>
+    </div>
+
+    <label class="item center subheader"><b>Where</b></label>
+    <label class="item item-borderless center item-text-wrap">{{EventCtrl.event.location}}</label>
+
+    <label class="item center subheader"><b>Number Needed</b></label>
+    <label class="item item-borderless center item-text-wrap">{{EventCtrl.event.numberNeeded - EventCtrl.event.numberScheduled}}</label>
+
+    <label class="item">
+      <button class="button button-block button-positive" ng-disable="!currentUser" ng-click="EventCtrl.signUpForEvent()">{{currentUser ? "Register for Event!" : "Please Sign In to Register"}}</button>
+    </label>
+  </ion-content>
+</ion-view>

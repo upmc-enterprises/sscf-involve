@@ -3,15 +3,15 @@
 
   angular
     .module('starter.controllers')
-    .controller('OpportunityCtrl', OpportunityCtrl);
+    .controller('EventCtrl', EventCtrl);
 
-  OpportunityCtrl.$inject = ['$ionicHistory', '$ionicModal', '$rootScope', '$state', '$stateParams', 'SessionService'];
+  EventCtrl.$inject = ['$ionicHistory', '$ionicModal', '$rootScope', '$state', '$stateParams', 'SessionService', 'EventLogService'];
 
-  function OpportunityCtrl($ionicHistory, $ionicModal, $rootScope, $state, $stateParams, SessionService) {
+  function EventCtrl($ionicHistory, $ionicModal, $rootScope, $state, $stateParams, SessionService, EventLogService) {
 
     var vm = this;
 
-    vm.opportunity = $stateParams.opportunity;
+    vm.event = $stateParams.event;
 
     vm.closeModal = function() {
       vm.modal.hide();
@@ -23,15 +23,15 @@
       $state.go('app.profile');
     };
 
-    vm.signUpForOpportunity = function() {
+    vm.signUpForEvent = function() {
       if(SessionService.currentUser) {
-        SessionService.currentUser.opportunities.push(vm.opportunity);
+        EventLogService.createEventLog(SessionService.currentUser.id, vm.event.id);
         vm.modal.show();
       }
     };
 
     var scope = $rootScope.$new(true);
-    // Create the login modal that we will use later
+    // Create the thanks modal to be used later
     $ionicModal.fromTemplateUrl('templates/thanks.html', {
       scope: angular.extend(scope, vm)
     }).then(function(modal) {
