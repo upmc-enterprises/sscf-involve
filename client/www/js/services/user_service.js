@@ -70,7 +70,8 @@
 
     return {
       getUsers: _getUsers,
-      signIn: _signIn
+      signIn: _signIn,
+      updateCurrentUsersCredits: _updateCurrentUsersCredits
     };
 
     function _getUsers() {
@@ -86,18 +87,22 @@
           if(response.data) {
             // Assign user to SessionService.currentUser
             SessionService.currentUser = response.data;
-
-            // Get the user's credits
-            CreditService
-              .getCreditsForUser(SessionService.currentUser)
-              .then(function(creditResponse) {
-                if(response.data) {
-                  SessionService.currentUser.credits = creditResponse.data
-                }
-              });
-
+            _updateCurrentUsersCredits();
           }
         });
     };
+
+    function _updateCurrentUsersCredits() {
+      if(SessionService.currentUser) {
+        // Get the user's credits
+        CreditService
+          .getCreditsForUser(SessionService.currentUser)
+          .then(function(response) {
+            if(response.data) {
+              SessionService.currentUser.credits = response.data
+            }
+          });
+      }
+    }
   }
 })();

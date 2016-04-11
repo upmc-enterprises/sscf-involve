@@ -12,13 +12,14 @@
     var _baseUrl = 'http://involvemint-server.us-east-1.elasticbeanstalk.com';
 
     return {
-      getCredits: _getCredits,
+      getCreditsForEventId: _getCreditsForEventId,
       getCreditsForUser: _getCreditsForUser,
-      addBusinessIdToCredit: _addBusinessIdToCredit
+      addBusinessIdToCredit: _addBusinessIdToCredit,
+      assignCreditToUser: _assignCreditToUser
     };
 
-    function _getCredits() {
-      return $http.get(_baseUrl + '/credits');
+    function _getCreditsForEventId(eventId) {
+      return $http.get(_baseUrl + '/credits/event/' + eventId);
     };
 
     function _getCreditsForUser(user) {
@@ -29,6 +30,11 @@
       return $http.put(_baseUrl + '/credits/' + SessionService.currentUser.credits[0].id +
                                   '/business/' + offer.businessId +
                                   '/offer/' + offer.id);
+    }
+
+    function _assignCreditToUser(credit) {
+      return $http.put(_baseUrl + '/credits/' + credit.id +
+                                  '/user/' + SessionService.currentUser.id);
     }
   }
 })();

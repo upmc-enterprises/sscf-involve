@@ -6,7 +6,7 @@
     </div>
 
     <label class="item">
-      <button class="button button-block button-positive" ng-click="OfferCtrl.redeemOffer()">Redeem</button>
+      <button class="button button-block button-positive" ng-click="OfferCtrl.redeemOffer()">{{currentUser ? "Buy This Voucher!" : "Please Sign In to Purchase"}}</button>
     </label>
   </ion-content>
 </ion-view>

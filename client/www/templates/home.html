@@ -4,10 +4,25 @@
     <span>involveMINT</span>
   </ion-nav-title>
   <ion-content>
+    <div class="item center">
+      Welcome{{currentUser ? ", Mary" : "! Please Sign In"}}
+    </div>
     <div class="list">
-      <label class="item item-input">
-        <i class="icon ion-ios-search-strong placeholder-icon"></i>
-      	<input type="text" placeholder="search">
+      <div class="item">
+        <a href="#/app/organizations"><b>Organizations You Follow</b></a>
+      </div>
+      <label class="item item-borderless">
+        <img src="img/images/FoodPantryLogo.png" style="width: 3em; height: 3em; margin-right: 1em;"> <span>Food Pantry</span>
+      </label>
+      <label class="item item-borderless">
+        <img src="img/images/westernpahumanesociety_logo.png" style="width: 3em; height: 3em; margin-right: 1em;"> <span style="vertical-align: middle;">Western PA Humane Society</span>
+      </label>
+
+      <div class="item">
+        <a href="#/app/businesses"><b>Favorite Businesses</b></a>
+      </div>
+      <label class="item item-borderless">
+        <img src="img/images/arnold_tea.jpeg" style="width: 3em; height: 4em; margin-right: 1em;"> <span>Arnold's Tea</span>
       </label>
     </div>
   </ion-content>

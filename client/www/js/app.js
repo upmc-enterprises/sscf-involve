@@ -100,6 +100,21 @@
               }
             }
         })
+        .state('app.eventlog', {
+            url: '/eventlog',
+            params: {
+              eventLog: null
+            },
+            cache: false,
+            views: {
+              'menuContent': {
+                cache: false,
+                controller: 'EventLogCtrl',
+                controllerAs: 'EventLogCtrl',
+                templateUrl: 'templates/eventLog.html'
+              }
+            }
+        })
         .state('app.offers', {
             url: '/offers',
             cache: false,

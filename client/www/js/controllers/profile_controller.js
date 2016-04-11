@@ -21,8 +21,12 @@
         }
       });
 
-    vm.goToOpportunity = function(opportunity) {
-      $state.go('app.opportunity', { opportunity: opportunity } );
+    vm.goToEventLog = function(eventLog) {
+      $state.go('app.eventlog', { eventLog: eventLog } );
+    };
+
+    vm.goToVoucher = function(voucher) {
+      $state.go('app.voucher', { voucher: voucher } );
     };
   }
 })();

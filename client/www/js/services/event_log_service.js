@@ -13,7 +13,8 @@
 
     return {
       getEventlogs: _getEventLogs,
-      getEventLogsForUser: _getEventLogsForUser
+      getEventLogsForUser: _getEventLogsForUser,
+      createEventLog: _createEventLog
     };
 
     function _getEventLogs() {
@@ -22,6 +23,10 @@
 
     function _getEventLogsForUser(user) {
       return $http.get(_baseUrl + '/event_log/user/' + user.id);
-    }
+    };
+
+    function _createEventLog(userId, eventId) {
+      return $http.post(_baseUrl + '/event_log', { eventId: eventId, userId: userId })
+    };
   }
 })();

@@ -5,9 +5,9 @@
     .module('starter.controllers')
     .controller('EventCtrl', EventCtrl);
 
-  EventCtrl.$inject = ['$ionicHistory', '$ionicModal', '$rootScope', '$state', '$stateParams', 'SessionService'];
+  EventCtrl.$inject = ['$ionicHistory', '$ionicModal', '$rootScope', '$state', '$stateParams', 'SessionService', 'EventLogService'];
 
-  function EventCtrl($ionicHistory, $ionicModal, $rootScope, $state, $stateParams, SessionService) {
+  function EventCtrl($ionicHistory, $ionicModal, $rootScope, $state, $stateParams, SessionService, EventLogService) {
 
     var vm = this;
 
@@ -25,7 +25,7 @@
 
     vm.signUpForEvent = function() {
       if(SessionService.currentUser) {
-        SessionService.currentUser.opportunities.push(vm.event);
+        EventLogService.createEventLog(SessionService.currentUser.id, vm.event.id);
         vm.modal.show();
       }
     };

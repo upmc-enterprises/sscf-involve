@@ -4,20 +4,15 @@
       <label class="item item-text-wrap" ng-bind="EventCtrl.event.description">
       </label>
     </div>
-    <label class="item item-borderless center subheader"><b>When</b></label>
-    <label class="item item-borderless center item-text-wrap">{{EventCtrl.event.starttime}}</label>
 
     <label class="item center subheader"><b>Where</b></label>
     <label class="item item-borderless center item-text-wrap">{{EventCtrl.event.location}}</label>
-
-    <label class="item center subheader"><b>How Long</b></label>
-    <label class="item item-borderless center item-text-wrap">{{EventCtrl.event.duration}}</label>
 
     <label class="item center subheader"><b>Number Needed</b></label>
     <label class="item item-borderless center item-text-wrap">{{EventCtrl.event.numberNeeded - EventCtrl.event.numberScheduled}}</label>
 
     <label class="item">
-      <button class="button button-block button-positive" ng-click="EventCtrl.signUpForevent()">I want to help!</button>
+      <button class="button button-block button-positive" ng-disable="!currentUser" ng-click="EventCtrl.signUpForEvent()">{{currentUser ? "Register for Event!" : "Please Sign In to Register"}}</button>
     </label>
   </ion-content>
 </ion-view>

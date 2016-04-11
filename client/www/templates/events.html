@@ -5,9 +5,8 @@
   </ion-nav-title>
   <ion-content>
     <div class="list">
-      <label class="item item-input">
-        <i class="icon ion-ios-search-strong placeholder-icon"></i>
-      	<input type="text" placeholder="search">
+      <label class="item center">
+        <b>Volunteer Opportunities</b>
       </label>
       <div ng-repeat="event in EventsCtrl.events" class="item">
         <a ng-click="EventsCtrl.goToEvent(event)">{{event.name}}</a>
